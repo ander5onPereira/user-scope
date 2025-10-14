@@ -3,7 +3,8 @@ export interface IError {
   error: string;
 }
 export interface Params{
-  page?: number;
+  page?: string;
+  name?: string;
 }
 interface InforDto{
   count: number;

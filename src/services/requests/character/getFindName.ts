@@ -3,18 +3,18 @@ import { api } from '@/services';
 import { handleApiError } from '@/services/error';
 import { urls } from '@/services/urls';
 
-interface ParamsGetById {
-  id: number;
+interface ParamsGetName {
+  name: string;
 }
 
-export async function getByIdCharacters(
-  params?: ParamsGetById
-): Promise<ICharacter> {
+export async function getFindIdCharacters(
+  params?: ParamsGetName
+): Promise<ICharacter[]> {
   try {
-    if (!params) {
+     if (!params) {
       throw handleApiError({ message: 'Params is required' });
     }
-    const response = await api.get(`${urls.character.getAll}/${params.id}`);
+    const response = await api.get(`${urls.character.getAll}/${params.name}`);
     return response.data;
   } catch (error) {
     throw handleApiError(error);

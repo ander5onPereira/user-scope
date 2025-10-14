@@ -1,15 +1,16 @@
 import type { ICharacter } from '@/models/character';
 import { api } from '@/services';
 import { handleApiError } from '@/services/error';
-import type { IError, Params, ResponseProps } from '@/services/types';
+import type {  Params, ResponseProps } from '@/services/types';
 import { urls } from '@/services/urls';
 
 export async function getAllCharacters(
   params?: Params
-): Promise<ResponseProps<ICharacter> | IError> {
+): Promise<ResponseProps<ICharacter>> {
   try {
-    return await api.get(urls.character.getAll, { params });
+    const response = await api.get(urls.character.getAll, { params });
+    return response.data || { results: [] };
   } catch (error) {
-    return handleApiError(error);
+    throw handleApiError(error);
   }
 }
