@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     primary: '#002C85',        
     primaryLight: '#0045B5',   
+    primaryLightShadow: '#0045b590',   
     secondary: '#00C26D',      
     background: '#FFFFFF',     
     backgroundAlt: '#F6F9FC',  
@@ -12,7 +13,7 @@ export const theme = {
       secondary: '#4F4F4F',    
       light: '#FFFFFF',        
     },
-    border: '#E0E0E0',         
+    border: '#E0E0E0',      
     success: '#00C26D',
     info: '#2F80ED',
   },
@@ -60,6 +61,9 @@ export const theme = {
     sm: '0 2px 4px rgba(0,0,0,0.1)',
     md: '0 4px 8px rgba(0,0,0,0.15)',
     lg: '0 8px 16px rgba(0,0,0,0.2)',
+  },
+  card:{
+    shadow:'5px 5px 15px -5px #000000'
   },
 
   breakpoints: {
