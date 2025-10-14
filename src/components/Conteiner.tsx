@@ -4,8 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 110vh;
+  height: 100dvh;
   gap: 1rem;
   background: linear-gradient(135deg, #dbeafe, #93c5fd);
 
