@@ -1,7 +1,8 @@
 import { toastError } from '@/function/notifications';
 import { api } from '@/services';
-import { useNavigate } from '@tanstack/react-router';
+
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function useAxiosErrorHandler() {
   const navigate = useNavigate();
@@ -11,9 +12,17 @@ export function useAxiosErrorHandler() {
       (response) => response,
       (error) => {
         const status = error.response?.status;
-        const message = error?.response?.data?.message ?? 'Erro desconhecido';
+        const message = error?.response?.data?.error ?? 'Erro desconhecido';
+        if (status === 404) {
+          toastError({ content: message });
+          // Delay to display toast before redirecting
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1500); // small delay
+        }
 
         if (status === 400 || status === 500) {
+          console.log('error', message);
           toastError({ content: message });
 
           // Delay to display toast before redirecting
