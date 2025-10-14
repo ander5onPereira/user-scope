@@ -4,6 +4,6 @@ export const Card = styled.div`
   background: #fff;
   border-radius: 8px;
   border: none;
-  -webkit-box-shadow: 5px 5px 15px -5px #000000;
-  box-shadow: 5px 5px 15px -5px #000000;
+  -webkit-box-shadow: ${({ theme }) => theme.card.shadow};
+  box-shadow: ${({ theme }) => theme.card.shadow};
 `;

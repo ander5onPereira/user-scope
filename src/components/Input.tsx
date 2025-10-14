@@ -8,10 +8,10 @@ export const Input = styled.input`
   padding: 0.5rem;
   border-radius: 0.3rem;
   border: 2px solid #00000010;
-  border-bottom: 2px solid #000;
+  border-bottom: ${({ theme }) => `2px solid ${theme.colors.primaryLight}`};
   &:focus {
-    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: ${({ theme }) => theme.shadow.sm};
+    box-shadow: ${({ theme }) => theme.shadow.sm};
   }
   &::placeholder {
     color: #00000040;

@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { QueryProvider } from './context/QueryContext';
-import { UserDetail } from './pages/User';
 
 import { useAxiosErrorHandler } from './hooks/useAxiosErrorHandler';
 import { CharacterProvider } from './context/character/CharacterContext';
 import { UserList } from './pages/UserList';
 import { FavoriteProvider } from './context/favorite/FavoriteContext';
+import { UserPage } from './pages/User';
 
 const AppRoutes = () => {
   useAxiosErrorHandler();
@@ -16,7 +16,7 @@ const AppRoutes = () => {
           path='/:id'
           element={
             <CharacterProvider>
-              <UserDetail />
+              <UserPage />
             </CharacterProvider>
           }
         />

@@ -40,8 +40,8 @@ export const TabButton = styled.button<TabButtonProps>`
     `}
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary}; 
-    border-bottom-color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.primaryLight}; 
+    border-bottom-color: ${({ theme }) => theme.colors.primaryLight};
   }
 `;
 
@@ -53,6 +53,7 @@ const fadeIn = keyframes`
 export const TabContent = styled.div`
   padding: 1.5rem 0;
   width: 80dvw;
+  max-height: 50dvh;
   animation: ${fadeIn} 0.25s ease;
   color: #333;
   line-height: 1.5;

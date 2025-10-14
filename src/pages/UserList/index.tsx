@@ -1,6 +1,6 @@
 import { Container } from '@/components/Conteiner';
 
-import { Tabs } from '@/components/tabs';
+import { Tabs } from '@/components/Tabs';
 import { ContentFavoriteTab } from './tabs/favorite';
 import { ContentUsersTab } from './tabs/users';
 

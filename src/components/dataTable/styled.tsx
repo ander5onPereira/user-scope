@@ -1,11 +1,17 @@
 import styled, { css } from 'styled-components';
 
+const Span = styled.span`
+  font-size: 0.8rem;
+`;
 const TableWrapper = styled.div`
   width: 100%;
   overflow-x: auto;
   border-radius: 8px;
   max-height: 80dvh;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  @media (max-width: 768px) {
+    max-height: 75dvh;
+  }
 `;
 
 const StyledTable = styled.table<{ $compact?: boolean }>`
@@ -13,6 +19,57 @@ const StyledTable = styled.table<{ $compact?: boolean }>`
   border-collapse: collapse;
   min-width: 640px;
   font-size: ${({ $compact }) => ($compact ? '0.85rem' : '0.95rem')};
+
+  @media (max-width: 768px) {
+    display: block;
+    min-width: 100%;
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    tr {
+      display: block;
+      width: 100%;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      padding: 1rem;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 8px 0;
+      border: none;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+
+      &::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555;
+        flex: 1;
+        text-align: left;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 `;
 
 const thCommon = css`
@@ -52,6 +109,10 @@ const TD = styled.td<{ align?: string }>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    padding: 8px 0;
+  }
 `;
 
 const EmptyRow = styled.div`
@@ -92,7 +153,9 @@ const Button = styled.button`
     cursor: default;
   }
 `;
+
 export {
+  Span,
   TableWrapper,
   StyledTable,
   THead,

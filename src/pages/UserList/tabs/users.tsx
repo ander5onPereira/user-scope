@@ -1,5 +1,5 @@
 import { Card } from '@/components/Card';
-import DataTable from '@/components/dataTable';
+import DataTable from '@/components/DataTable';
 import { Indication } from '@/components/Indicator';
 import { Input } from '@/components/Input';
 import { useCharacter } from '@/hooks/useCharacter';
@@ -7,6 +7,7 @@ import { useFavorite } from '@/hooks/useFavorite';
 import { IoIosStar } from 'react-icons/io';
 import { IoStarOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import { Imagem } from './style';
 
 export function ContentUsersTab() {
   const navigator = useNavigate();
@@ -32,11 +33,9 @@ export function ContentUsersTab() {
               title: '',
               width: '80',
               render: (value) => (
-                <img
-                  src={String(value)}
-                  alt='character'
-                  style={{ width: 50, height: 50, borderRadius: 25 }}
-                />
+                <div>
+                  <Imagem src={String(value)} alt='character' />
+                </div>
               ),
             },
             { key: 'id', title: 'ID', width: '60' },

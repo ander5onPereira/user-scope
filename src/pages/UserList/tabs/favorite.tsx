@@ -1,10 +1,11 @@
 import { Card } from '@/components/Card';
-import DataTable from '@/components/dataTable';
+import DataTable from '@/components/DataTable';
 import { Input } from '@/components/Input';
 import { useFavorite } from '@/hooks/useFavorite';
 import { IoIosStar } from 'react-icons/io';
 import { IoStarOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import { Imagem } from './style';
 
 export function ContentFavoriteTab() {
   const navigator = useNavigate();
@@ -31,20 +32,14 @@ export function ContentFavoriteTab() {
         <DataTable
           key={`dataTable-favorites-${storage?.toString()}`}
           columns={[
-            { key: 'id', title: 'ID' },
-            { key: 'name', title: 'Nome' },
-            { key: 'gender', title: 'Genero' },
             {
               key: 'image',
               title: '',
-              render: (value) => (
-                <img
-                  src={String(value)}
-                  alt='character'
-                  style={{ width: 50, height: 50, borderRadius: 25 }}
-                />
-              ),
+              render: (value) => <Imagem src={String(value)} alt='character' />,
             },
+            { key: 'id', title: 'ID' },
+            { key: 'name', title: 'Nome' },
+            { key: 'gender', title: 'Genero' },
             {
               key: 'id',
               title: 'favorite',

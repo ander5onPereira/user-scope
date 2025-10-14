@@ -6,6 +6,8 @@ export const Container = styled.div`
   align-items: center;
   height: 100dvh;
   gap: 1rem;
+  overflow: hidden;
+  overflow-y: auto;
   background: linear-gradient(135deg, #dbeafe, #93c5fd);
 
   @media (max-width: 768px) {

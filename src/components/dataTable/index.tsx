@@ -4,6 +4,7 @@ import {
   EmptyRow,
   Footer,
   PageControls,
+  Span,
   StyledTable,
   TableWrapper,
   TD,
@@ -12,6 +13,7 @@ import {
   TR,
 } from './styled';
 import type { Props } from './types';
+import { Grid } from '../Grid';
 
 export function DataTable<T extends object>(props: Props<T>) {
   const {
@@ -81,10 +83,9 @@ export function DataTable<T extends object>(props: Props<T>) {
                         const value = row[col.key];
                         return (
                           <TD
-                            key={`td-${String(col.key)}-${String(
-                              value
-                            )}-${key}`}
+                            key={`td-${String(col.key)}-${key}`}
                             align={col.align}
+                            data-label={col.title}
                           >
                             {col.isAction ? (
                               <div data-no-row-click>
@@ -111,9 +112,12 @@ export function DataTable<T extends object>(props: Props<T>) {
 
       {pageSize && (
         <Footer>
-          <div>
-            Mostrando {data.length} de {count}
-          </div>
+          <Grid $gap='0.2rem'>
+            <Span>Mostrando</Span>
+            <Span>
+              {data.length} de {count}
+            </Span>
+          </Grid>
           <PageControls>
             <Button
               onClick={prevPage ? () => prevPage() : undefined}
@@ -121,9 +125,12 @@ export function DataTable<T extends object>(props: Props<T>) {
             >
               <GrPrevious />
             </Button>
-            <div>
-              Página {page} / {totalPages}
-            </div>
+            <Grid $gap='0.2rem'>
+              <Span>Página</Span>
+              <Span>
+                {page} / {totalPages}
+              </Span>
+            </Grid>
             <Button
               onClick={nextPage ? () => nextPage() : undefined}
               disabled={!nextPage}
