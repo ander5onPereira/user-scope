@@ -14,6 +14,7 @@ import {
 } from './styled';
 import type { Props } from './types';
 import { Grid } from '../Grid';
+import { useTranslation } from 'react-i18next';
 
 export function DataTable<T extends object>(props: Props<T>) {
   const {
@@ -30,6 +31,7 @@ export function DataTable<T extends object>(props: Props<T>) {
     onRowClick,
     isLoading = false,
   } = props;
+  const { t } = useTranslation();
 
   const handleRowClick = (e: React.MouseEvent, row: T) => {
     const target = e.target as HTMLElement;
@@ -60,7 +62,7 @@ export function DataTable<T extends object>(props: Props<T>) {
             {isLoading ? (
               <tr>
                 <td colSpan={columns.length}>
-                  <EmptyRow>CARREGANDO...</EmptyRow>
+                  <EmptyRow>{t('loading')}</EmptyRow>
                 </td>
               </tr>
             ) : (
@@ -68,7 +70,7 @@ export function DataTable<T extends object>(props: Props<T>) {
                 {data.length === 0 ? (
                   <tr>
                     <td colSpan={columns.length}>
-                      <EmptyRow>Nenhum dado encontrado</EmptyRow>
+                      <EmptyRow>{t('emptyList')}</EmptyRow>
                     </td>
                   </tr>
                 ) : (
@@ -113,9 +115,9 @@ export function DataTable<T extends object>(props: Props<T>) {
       {pageSize && (
         <Footer>
           <Grid $gap='0.2rem'>
-            <Span>Mostrando</Span>
+            <Span>{t('showing')}</Span>
             <Span>
-              {data.length} de {count}
+              {t('showingInfo', { length: data.length, totalCount: count })}
             </Span>
           </Grid>
           <PageControls>
@@ -126,9 +128,9 @@ export function DataTable<T extends object>(props: Props<T>) {
               <GrPrevious />
             </Button>
             <Grid $gap='0.2rem'>
-              <Span>Página</Span>
+              <Span>{t('page')}</Span>
               <Span>
-                {page} / {totalPages}
+                {t('pageInfo', { length: page, totalCount: totalPages })}
               </Span>
             </Grid>
             <Button

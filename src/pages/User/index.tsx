@@ -11,15 +11,18 @@ import {
   InfoItem,
   Title,
 } from './style';
+import { useTranslation } from 'react-i18next';
 
 export function UserPage() {
+  const { t } = useTranslation();
   const navegate = useNavigate();
   const { currentCharacter, isLoading } = useCharacter();
+
   function handleBack() {
     navegate(-1);
   }
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}</div>;
   }
   return (
     <Container>
@@ -40,19 +43,19 @@ export function UserPage() {
 
         <InfoContainer>
           <InfoItem>
-            <strong>Status:</strong> {currentCharacter?.status}
+            <strong>{t('status')}:</strong> {currentCharacter?.status}
           </InfoItem>
           <InfoItem>
-            <strong>Especie:</strong> {currentCharacter?.species}
+            <strong>{t('species')}:</strong> {currentCharacter?.species}
           </InfoItem>
           <InfoItem>
-            <strong>Genero:</strong> {currentCharacter?.gender}
+            <strong>{t('gender')}:</strong> {currentCharacter?.gender}
           </InfoItem>
           <InfoItem>
-            <strong>Origem:</strong> {currentCharacter?.origin?.name}
+            <strong>{t('origin')}:</strong> {currentCharacter?.origin?.name}
           </InfoItem>
           <InfoItem>
-            <strong>Localização:</strong> {currentCharacter?.location?.name}
+            <strong>{t('location')}:</strong> {currentCharacter?.location?.name}
           </InfoItem>
         </InfoContainer>
 

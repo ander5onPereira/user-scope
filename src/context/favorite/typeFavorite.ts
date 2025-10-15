@@ -10,7 +10,7 @@ export interface FavoriteContextType {
 }
 export const defaultFavoriteContext: FavoriteContextType = {
   favorites: [],
-  isLoading: false,
+  isLoading: true,
   removeItemFavorite: () => {},
   addItemFavorite: () => {},
   storage: undefined,

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Collapse } from '../Collapse';
 import { useEpisode } from './useEpisode';
 
@@ -7,22 +8,23 @@ interface EpisodeCollapseProps {
 
 export function EpisodeCollapse({ url }: EpisodeCollapseProps) {
   const { data, isLoading, handletIsOpen } = useEpisode({ url });
+  const { t } = useTranslation();
   return (
     <Collapse
-      title={`Episódio ${url.split('/').pop()}`}
+      title={t('episodes', { episodes: url.split('/').pop() })}
       onOpenChange={handletIsOpen}
     >
-      {isLoading && <p>Carregando...</p>}
+      {isLoading && <p>{t('loading')}</p>}
       {data && (
         <>
           <p>
-            <strong>Nome:</strong> {data.name}
+            <strong>{t('name')}:</strong> {data.name}
           </p>
           <p>
-            <strong>Data:</strong> {data.air_date}
+            <strong>{t('date')}:</strong> {data.air_date}
           </p>
           <p>
-            <strong>Código:</strong> {data.episode}
+            <strong>{t('code')}:</strong> {data.episode}
           </p>
         </>
       )}

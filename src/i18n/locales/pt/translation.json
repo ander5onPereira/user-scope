@@ -1,0 +1,23 @@
+{
+  "general": "Geral",
+  "favorites": "Favoritos",
+  "name": "Nome",
+  "gender": "Gênero",
+  "status": "Status",
+  "favorite": "Favoritar",
+  "successFavorite": "Adicionado aos favoritos",
+  "removedFavorite": "Removido dos favoritos",
+  "showing": "Mostrando",
+  "showingInfo": "{{length}} de {{totalCount}}",
+  "page": "Página",
+  "pageInfo": "{{length}} / {{totalCount}}",
+  "searchName": "Buscar por nome",
+  "species": "Espécie",
+  "origin": "Origem",
+  "location": "Localização",
+  "episodes": "Episódio {{episodes}}",
+  "date": "Data",
+  "code": "Código",
+  "loading": "Carregando...",
+  "emptyList": "Nenhum resultado encontrado"
+}

@@ -8,6 +8,8 @@ import {
   defaultFavoriteContext,
   type FavoriteContextType,
 } from './typeFavorite';
+import { toastInfo, toastSuccess } from '@/function/notifications';
+import { useTranslation } from 'react-i18next';
 
 const FavoriteContext = createContext<FavoriteContextType>(
   defaultFavoriteContext
@@ -17,6 +19,7 @@ interface FavoriteProviderProps {
   children: ReactNode;
 }
 export function FavoriteProvider({ children }: FavoriteProviderProps) {
+  const { t } = useTranslation();
   const { storage, setValue } = useLocalStorage<Array<number>>('favorites');
 
   const [search, setSearch] = useState<string>('');
@@ -36,12 +39,14 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
 
     const newStorage = removeItem(storage, itemToRemove);
     setValue(newStorage);
+    toastInfo({ content: t('removedFavorite') });
   }
   function addItemFavorite(itemToRemove: number) {
     if (!storage || !Array.isArray(storage)) return;
 
     const newStorage = addIfNotExists(storage, itemToRemove);
     setValue(newStorage);
+    toastSuccess({ content: t('successFavorite') });
   }
 
   const handleFilter = useCallback(() => {

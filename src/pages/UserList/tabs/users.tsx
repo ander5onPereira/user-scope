@@ -8,9 +8,11 @@ import { IoIosStar } from 'react-icons/io';
 import { IoStarOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { Imagem } from './style';
+import { useTranslation } from 'react-i18next';
 
 export function ContentUsersTab() {
   const navigator = useNavigate();
+  const { t } = useTranslation();
   const { character, handlerNextPage, handlerPrevPage, page, handleSetSearch } =
     useCharacter();
   const { addItemFavorite, removeItemFavorite, storage } = useFavorite();
@@ -20,7 +22,7 @@ export function ContentUsersTab() {
         <Input
           type='text'
           name='search'
-          placeholder='Buscar nome'
+          placeholder={t('searchName')}
           onChange={(e) => handleSetSearch(e.target.value)}
         />
       </div>
@@ -35,16 +37,16 @@ export function ContentUsersTab() {
               render: (value) => <Imagem src={String(value)} alt='character' />,
             },
             { key: 'id', title: 'ID', width: '60' },
-            { key: 'name', title: 'Nome' },
-            { key: 'gender', title: 'Genero' },
+            { key: 'name', title: t('name') },
+            { key: 'gender', title: t('gender') },
             {
               key: 'status',
-              title: 'Status',
+              title: t('status'),
               render: (value) => <Indication $color={value.toString()} />,
             },
             {
               key: 'id',
-              title: 'Favoritar',
+              title: t('favorite'),
               isAction: true,
               width: '100',
               render: (value) =>

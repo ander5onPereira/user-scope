@@ -3,17 +3,19 @@ import { Container } from '@/components/Conteiner';
 import { Tabs } from '@/components/Tabs';
 import { ContentFavoriteTab } from './tabs/favorite';
 import { ContentUsersTab } from './tabs/users';
+import { useTranslation } from 'react-i18next';
 
 export function UserList() {
+  const { t } = useTranslation();
   const tabs = [
     {
       id: 'tab1',
-      label: 'Geral',
+      label: t('general'),
       content: () => <ContentUsersTab />,
     },
     {
       id: 'tab2',
-      label: 'Favoritos',
+      label: t('favorites'),
       content: () => <ContentFavoriteTab />,
     },
   ];
