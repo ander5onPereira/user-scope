@@ -44,7 +44,7 @@ export function ContentUsersTab() {
             },
             {
               key: 'id',
-              title: 'favorite',
+              title: 'Favoritar',
               isAction: true,
               width: '100',
               render: (value) =>

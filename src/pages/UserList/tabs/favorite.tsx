@@ -42,7 +42,7 @@ export function ContentFavoriteTab() {
             { key: 'gender', title: 'Genero' },
             {
               key: 'id',
-              title: 'favorite',
+              title: 'Favoritar',
               isAction: true,
               render: (value) =>
                 storage?.find((st: number) => st === value) ? (

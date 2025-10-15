@@ -43,16 +43,16 @@ export function UserPage() {
             <strong>Status:</strong> {currentCharacter?.status}
           </InfoItem>
           <InfoItem>
-            <strong>Species:</strong> {currentCharacter?.species}
+            <strong>Especie:</strong> {currentCharacter?.species}
           </InfoItem>
           <InfoItem>
-            <strong>Gender:</strong> {currentCharacter?.gender}
+            <strong>Genero:</strong> {currentCharacter?.gender}
           </InfoItem>
           <InfoItem>
-            <strong>Origin:</strong> {currentCharacter?.origin?.name}
+            <strong>Origem:</strong> {currentCharacter?.origin?.name}
           </InfoItem>
           <InfoItem>
-            <strong>Location:</strong> {currentCharacter?.location?.name}
+            <strong>Localização:</strong> {currentCharacter?.location?.name}
           </InfoItem>
         </InfoContainer>
 
