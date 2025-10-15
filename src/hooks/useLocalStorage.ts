@@ -13,7 +13,7 @@ export function useLocalStorage<T>(key: string) {
   }
 
   return {
-    storage,
+    storage: storage || [],
     setValue: (newValue: T) => setValueAndStore(newValue),
   };
 }
