@@ -4,7 +4,6 @@ import { describe, it, expect } from 'vitest';
 import { defaultFavoriteContext } from '@/context/favorite/typeFavorite';
 import { FavoriteProvider } from '@/context/favorite/FavoriteContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
 describe('useFavorite Hook', () => {
   it('should throw an error when used outside of FavoriteProvider', () => {
     let error;

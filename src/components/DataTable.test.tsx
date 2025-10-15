@@ -3,6 +3,13 @@ import { DataTable } from './DataTable';
 import { describe, it, expect } from 'vitest';
 import type { Column } from './DataTable/types';
 
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+    i18n: { changeLanguage: vi.fn() },
+  }),
+}));
+
 describe('DataTable Component', () => {
   it('renders data correctly', () => {
     const columns: Column<{ id: number; name: string }>[] = [
@@ -29,6 +36,6 @@ describe('DataTable Component', () => {
 
     render(<DataTable columns={columns} data={[]} />);
 
-    expect(screen.getByText('Nenhum dado encontrado')).toBeInTheDocument();
+    expect(screen.getByText('emptyList')).toBeInTheDocument();
   });
 });

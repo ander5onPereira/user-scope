@@ -5,6 +5,12 @@ import { describe, it, expect } from 'vitest';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+    i18n: { changeLanguage: vi.fn() },
+  }),
+}));
 describe('AppRoutes', () => {
   it('renders UserList page on root path', () => {
     window.history.pushState({}, 'Test page', '/');
@@ -17,7 +23,7 @@ describe('AppRoutes', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Geral')).toBeInTheDocument();
+    expect(screen.getByText('general')).toBeInTheDocument();
   });
 
   it('renders UserPage on dynamic path', () => {
@@ -31,6 +37,6 @@ describe('AppRoutes', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByText('loading')).toBeInTheDocument();
   });
 });
