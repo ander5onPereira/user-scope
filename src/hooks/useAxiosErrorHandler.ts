@@ -14,11 +14,13 @@ export function useAxiosErrorHandler() {
         const status = error.response?.status;
         const message = error?.response?.data?.error ?? 'Erro desconhecido';
         if (status === 404) {
-          toastError({ content: message });
-          // Delay to display toast before redirecting
-          setTimeout(() => {
-            window.location.href = '/';
-          }, 1500); // small delay
+          if (message === 'Character not found') {
+            toastError({ content: message });
+            // Delay to display toast before redirecting
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 1500); // small delay
+          }
         }
 
         if (status === 400 || status === 500) {
