@@ -99,3 +99,7 @@ Acesse a aplicação em http://localhost:5173.
 
 - Testes unitários foram implementados utilizando Vitest e React Testing Library.
 - Exemplos de testes incluem a funcionalidade de favoritar usuários.
+
+## 💻 Acesso a aplicação
+
+### [**User Scope**](https://user-scope.arpdev.com.br/)
