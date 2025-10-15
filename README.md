@@ -17,6 +17,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Styled Components](https://styled-components.com/)
 - [Docker](https://www.docker.com/)
 - [Vitest](https://vitest.dev/)
+- [i18next](https://www.i18next.com/)
 
 ## 💻 Projeto
 
@@ -43,7 +44,7 @@ A aplicação permite:
 
 ## 🚀 Como executar
 
-A execução é feita via Docker Compose. Certifique-se de ter o Docker e Docker Compose instalados no computador.
+A aplicação pode ser executada localmente com ou sem o Docker.
 
 1. Clone o repositório:
 
@@ -60,6 +61,10 @@ cd user-scope
 3. Crie o arquivo **.env** com base no **.env.example** fornecido.
 
 > Obs.: Utilizado API Rest rickandmortyapi usar a **VITE_API_URL=https://rickandmortyapi.com/api**
+
+### Execução com o Docker:
+
+A execução é feita via Docker Compose. Certifique-se de ter o Docker e Docker Compose instalados no computador.
 
 4. Inicie o projeto:
 
@@ -85,6 +90,22 @@ docker-compose stop
 docker-compose stop
 ```
 
+### Execução sem o Docker:
+
+A execução é feita diretamente no terminal. Certifique-se de ter o Node.js instalado no computador.
+
+4. Instale as dependências:
+
+```bash
+npm install
+```
+
+5. Execute o servidor:
+
+```bash
+npm run dev
+```
+
 Acesse a aplicação em http://localhost:5173.
 
 ## 🔧 Decisões Técnicas
@@ -94,6 +115,7 @@ Acesse a aplicação em http://localhost:5173.
 - Styled Components: Escolhido pela facilidade de estilização e compatibilidade com o ViteJS e React.
 - Docker: Incluído para facilitar a execução do projeto em diferentes ambientes.
 - APIs Públicas: Consumo de APIs públicas para fornecer dados de exemplo, api utilizada foi rickand and morty.
+- i18next: Utilizado para suporte a múltiplas línguas, com suporte a traduções e recursos de internacionalização.
 
 ## 🧪 Testes
 
