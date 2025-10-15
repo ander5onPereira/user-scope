@@ -32,11 +32,7 @@ export function ContentUsersTab() {
               key: 'image',
               title: '',
               width: '80',
-              render: (value) => (
-                <div>
-                  <Imagem src={String(value)} alt='character' />
-                </div>
-              ),
+              render: (value) => <Imagem src={String(value)} alt='character' />,
             },
             { key: 'id', title: 'ID', width: '60' },
             { key: 'name', title: 'Nome' },

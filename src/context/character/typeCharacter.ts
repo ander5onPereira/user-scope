@@ -12,7 +12,7 @@ export interface CharacterContextType {
   handleSetSearch: (name: string) => void;
 }
 export const defaultCharacterContext: CharacterContextType = {
-  isLoading: false,
+  isLoading: true,
   character: undefined,
   currentCharacter: undefined,
   handlerNextPage: () => {},
