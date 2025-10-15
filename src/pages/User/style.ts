@@ -22,6 +22,8 @@ export const Title = styled.h1`
 export const CharacterImage = styled.img`
   width: 100%;
   height: auto;
+  max-height: 250px;
+  object-fit: contain;
   display: block;
 `;
 
