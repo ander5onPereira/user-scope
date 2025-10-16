@@ -18,6 +18,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Docker](https://www.docker.com/)
 - [Vitest](https://vitest.dev/)
 - [i18next](https://www.i18next.com/)
+- [GraphQL](https://graphql.org/)
 
 ## 💻 Projeto
 
@@ -61,6 +62,7 @@ cd user-scope
 3. Crie o arquivo **.env** com base no **.env.example** fornecido.
 
 > Obs.: Utilizado API Rest rickandmortyapi usar a **VITE_API_URL=https://rickandmortyapi.com/api**
+> Obs.: Utilizado API Graphql rickandmortyapi usar a **VITE_API_URL_GRAPHQL=https://rickandmortyapi.com/graphql**
 
 ### Execução com o Docker:
 
@@ -116,6 +118,8 @@ Acesse a aplicação em http://localhost:5173.
 - Docker: Incluído para facilitar a execução do projeto em diferentes ambientes.
 - APIs Públicas: Consumo de APIs públicas para fornecer dados de exemplo, api utilizada foi rickand and morty.
 - i18next: Utilizado para suporte a múltiplas línguas, com suporte a traduções e recursos de internacionalização.
+
+> Obs.: Nessa banch graphql foi realiza a integração com o Graphql, para realizar a busca do dados, para não efetar em nada a aplicação desenvolvida primeiramente em Rest, os retornos do Graphql foram formatados para que fossem compatíveis com o Rest.
 
 ## 🧪 Testes
 
