@@ -62,6 +62,7 @@ cd user-scope
 3. Crie o arquivo **.env** com base no **.env.example** fornecido.
 
 > Obs.: Utilizado API Rest rickandmortyapi usar a **VITE_API_URL=https://rickandmortyapi.com/api**
+
 > Obs.: Utilizado API Graphql rickandmortyapi usar a **VITE_API_URL_GRAPHQL=https://rickandmortyapi.com/graphql**
 
 ### Execução com o Docker:
