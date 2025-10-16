@@ -13,8 +13,14 @@ import { useTranslation } from 'react-i18next';
 export function ContentUsersTab() {
   const navigator = useNavigate();
   const { t } = useTranslation();
-  const { character, handlerNextPage, handlerPrevPage, page, handleSetSearch } =
-    useCharacter();
+  const {
+    character,
+    handlerNextPage,
+    handlerPrevPage,
+    page,
+    handleSetSearch,
+    isLoading,
+  } = useCharacter();
   const { addItemFavorite, removeItemFavorite, storage } = useFavorite();
   return (
     <Card>
@@ -71,6 +77,7 @@ export function ContentUsersTab() {
           totalPages={character?.info.pages}
           count={character?.info.count}
           onRowClick={(e) => navigator(`/${e.id}`)}
+          isLoading={isLoading}
         />
       </div>
     </Card>
