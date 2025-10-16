@@ -12,11 +12,9 @@ interface CollapseProps {
 export function Collapse({ title, children, onOpenChange }: CollapseProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleToggle = () => {
-    setIsOpen((prev) => {
-      const next = !prev;
-      onOpenChange?.(next);
-      return next;
-    });
+    const newState = !isOpen;
+    setIsOpen(newState);
+    onOpenChange?.(newState);
   };
   return (
     <CollapseWrapper>

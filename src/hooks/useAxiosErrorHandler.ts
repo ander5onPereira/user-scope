@@ -1,5 +1,5 @@
 import { toastError } from '@/function/notifications';
-import { api } from '@/services';
+import { api } from '@/services/axios';
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
