@@ -18,6 +18,7 @@ export function ContentFavoriteTab() {
     removeItemFavorite,
     addItemFavorite,
     handleSetSearch,
+    isLoading,
   } = useFavorite();
 
   return (
@@ -62,6 +63,7 @@ export function ContentFavoriteTab() {
           ]}
           data={favorites || []}
           onRowClick={(e) => navigator(`/${e.id}`)}
+          isLoading={isLoading}
         />
       </div>
     </Card>
