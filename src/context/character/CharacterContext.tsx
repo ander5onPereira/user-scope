@@ -1,7 +1,7 @@
 import type { ICharacter } from '@/models/character';
-import { getAllCharacters } from '@/services/requests/character/getAll';
-import { getByIdCharacters } from '@/services/requests/character/getById';
-import type { ResponseProps } from '@/services/types';
+// import { getAllCharacters } from '@/services/requests/character/getAll'; // Request API Rest
+// import { getByIdCharacters } from '@/services/requests/character/getById'; // Request API Rest
+import type { ResponseProps } from '@/services/axios/types';
 import { useQuery } from '@tanstack/react-query';
 import { createContext, useCallback, useState, type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
@@ -9,6 +9,8 @@ import {
   defaultCharacterContext,
   type CharacterContextType,
 } from './typeCharacter';
+import { getAllCharactersApollo } from '@/services/apollo/character/getAll'; // Request API graphql
+import { getByIdCharactersApollo } from '@/services/apollo/character/getById'; // Request API graphql
 
 const CharacterContext = createContext<CharacterContextType>(
   defaultCharacterContext
@@ -25,17 +27,19 @@ export function CharacterProvider({ children }: CharacterProviderProps) {
 
   const { data, isLoading, refetch } = useQuery<ResponseProps<ICharacter>>({
     queryKey: ['character', page, search],
-    queryFn: () => getAllCharacters({ page: page, name: search }),
+    // queryFn: () => getAllCharacters({ page: page, name: search }), // Request API Rest
+    queryFn: () => getAllCharactersApollo({ page: Number(page), name: search }), // Request API graphql
     staleTime: 60 * 1000,
   });
+
   const { data: characterDetail, isLoading: isLoadingDetail } =
     useQuery<ICharacter>({
       queryKey: [`character-${id}`],
-      queryFn: () => getByIdCharacters({ id: Number(id) }),
+      // queryFn: () => getByIdCharacters({ id: Number(id) }),  // Request API Rest
+      queryFn: () => getByIdCharactersApollo({ id: Number(id) }), // Request API graphql
       staleTime: 60 * 1000,
       enabled: !!id,
     });
-
   function handleSetSearch(name: string) {
     if (name.length >= 3 || name.length === 0) {
       setSearch(name);

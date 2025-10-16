@@ -1,5 +1,5 @@
 import type { ICharacter } from '@/models/character';
-import type { ResponseProps } from '@/services/types';
+import type { ResponseProps } from '@/services/axios/types';
 
 export interface CharacterContextType {
   isLoading: boolean;

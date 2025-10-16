@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import type { ICharacter } from '@/models/character';
-import { getFindIdCharacters } from '@/services/requests/character/getFindId';
+// import { getFindIdCharacters } from '@/services/requests/character/getFindId'; // Request API Rest
 import { addIfNotExists, removeItem } from '@/utils/array';
 import { useQuery } from '@tanstack/react-query';
 import { createContext, useCallback, useState, type ReactNode } from 'react';
@@ -10,6 +10,7 @@ import {
 } from './typeFavorite';
 import { toastInfo, toastSuccess } from '@/function/notifications';
 import { useTranslation } from 'react-i18next';
+import { getFindIdCharactersApollo } from '@/services/apollo/character/getFindId'; // Request API graphql
 
 const FavoriteContext = createContext<FavoriteContextType>(
   defaultFavoriteContext
@@ -30,10 +31,12 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
 
   const { data, isLoading } = useQuery<ICharacter[]>({
     queryKey: [`favorite-${storage}`],
-    queryFn: () => getFindIdCharacters({ id: storage || [] }),
+    // queryFn: () => getFindIdCharacters({ id: storage || [] }), // Request API Rest
+    queryFn: () => getFindIdCharactersApollo({ id: storage || [] }), // Request API graphql
     staleTime: 60 * 1000,
     enabled: !!storage,
   });
+
   function removeItemFavorite(itemToRemove: number) {
     if (!storage || !Array.isArray(storage)) return;
 
