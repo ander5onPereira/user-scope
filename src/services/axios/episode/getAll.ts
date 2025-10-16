@@ -1,9 +1,9 @@
 import type { IEpisode } from '@/models/episode';
 
-import { api } from '@/services';
-import { handleApiError } from '@/services/error';
-import type { IError, Params, ResponseProps } from '@/services/types';
-import { urls } from '@/services/urls';
+import { api } from '@/services/axios';
+import { handleApiError } from '@/services/axios/error';
+import type { IError, Params, ResponseProps } from '@/services/axios/types';
+import { urls } from '@/services/axios/urls';
 
 export async function getAllEpisode(
   params?: Params

@@ -6,7 +6,7 @@ export interface Params{
   page?: string;
   name?: string;
 }
-interface InforDto{
+export interface InforDto{
   count: number;
   pages: number;
   next: string | null;

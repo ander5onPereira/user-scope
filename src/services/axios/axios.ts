@@ -1,3 +1,4 @@
+import { ENV } from '@/utils/env';
 import axios from 'axios';
 
 export function getAPIClient() {
@@ -5,7 +6,7 @@ export function getAPIClient() {
     headers: {
       'Content-Type': 'application/json',
     },
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: ENV.VITE_API_URL,
   });
   return api;
 }

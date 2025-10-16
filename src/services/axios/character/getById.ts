@@ -1,7 +1,7 @@
 import type { ICharacter } from '@/models/character';
-import { api } from '@/services';
-import { handleApiError } from '@/services/error';
-import { urls } from '@/services/urls';
+import { api } from '@/services/axios';
+import { handleApiError } from '@/services/axios/error';
+import { urls } from '@/services/axios/urls';
 
 interface ParamsGetById {
   id: number;

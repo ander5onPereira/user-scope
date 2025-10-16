@@ -1,6 +1,6 @@
 import type { IEpisode } from '@/models/episode';
-import { api } from '@/services';
-import { handleApiError } from '@/services/error';
+import { api } from '@/services/axios';
+import { handleApiError } from '@/services/axios/error';
 
 interface ParamsGet {
   url: string;
